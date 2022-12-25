@@ -148,7 +148,7 @@ process fastp {
 
     script:
         """
-	fastp -i ${fastq_1} -I ${fastq_2} -o ${id}_1_fastp.fastq.gz -O ${id}_2_fastp.fastq.gz -j ${id}_fastp.json -h ${id}_fastp.html -q 30 -e 25 -n 3 -l 65 -c -x -p -w ${task.cpus}
+	fastp -i ${fastq_1} -I ${fastq_2} -o ${id}_1_fastp.fastq.gz -O ${id}_2_fastp.fastq.gz -j ${id}_fastp.json -h ${id}_fastp.html -q 30 -e 25 -n 3 -l 70 -c -x -p -w ${task.cpus}
 
 	"""
 }  
@@ -296,7 +296,7 @@ process fastp {
 
      script:
          """
-         STAR --runThreadN ${task.cpus} --runMode alignReads --genomeDir $indices_mus --readFilesIn ${fastq_1} ${fastq_2} --readFilesCommand zcat --outSAMtype BAM SortedByCoordinate --sjdbGTFfile $gtf_in --outFileNamePrefix ${id}
+         STAR --runThreadN ${task.cpus} --runMode alignReads --genomeDir $indices_mus --readFilesIn ${fastq_1} ${fastq_2} --readFilesCommand zcat --outSAMtype BAM SortedByCoordinate --sjdbGTFfile $gtf_in --outFileNamePrefix ${id} --sjdbOverhang 100
 
  	"""
  }
