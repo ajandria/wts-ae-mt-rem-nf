@@ -13,6 +13,7 @@ gtf_in = '/home/ajan/projects/references/mus_musculus/Mus_musculus.GRCm39.108.ch
 ref_flat_in = '/home/ajan/projects/references/mus_musculus/Mus_musculus.GRCm39.108.chr.gtf.refFlat.gz'
 genome_in = '/home/ajan/projects/references/mus_musculus/Mus_musculus.GRCm39.dna.primary_assembly.fa'
 params.indices = '/home/ajan/projects/references/mus_musculus'
+params.indexed = 'genome'
 
 rRNA_1 = '/home/ajan/projects/rRNA_databases/rfam-5.8s-database-id98.fasta'
 rRNA_2 = '/home/ajan/projects/rRNA_databases/rfam-5s-database-id98.fasta'
@@ -83,20 +84,20 @@ Channel
 
      module 'BIDA/STAR/2.7.0d'
 
-    publishDir "$indices", mode:'copy'
+    publishDir params.indexed, mode:'copy'
    
     input:
         path params.indices
     
     output:
-        path '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/genome/genome_dir' into ch_index
+        path 'genome' into ch_index
 
     script:
         """
         STAR \
         --runThreadN ${task.cpus} \
         --runMode genomeGenerate \
-        --genomeDir /home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/genome/genome_dir \
+        --genomeDir /home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/genome \
         --genomeFastaFiles ${genome_in} \
         --sjdbGTFfile ${gtf_in} \
         --sjdbOverhang 100 
