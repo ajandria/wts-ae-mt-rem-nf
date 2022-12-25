@@ -81,7 +81,7 @@ Channel
 
      label 'star_align'
 
-     module 'MOD/star/2.7.9a'
+     module 'BIDA/STAR/2.7.0d'
 
     publishDir "$indices", mode:'copy'
    
@@ -89,14 +89,14 @@ Channel
         path params.indices
     
     output:
-        path '/home/ajan/projects/references/mus_musculus/GRCm39.108' into ch_index
+        path '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/genome/genome_dir' into ch_index
 
     script:
         """
         STAR \
         --runThreadN ${task.cpus} \
         --runMode genomeGenerate \
-        --genomeDir /home/ajan/projects/references/mus_musculus/GRCm39.108 \
+        --genomeDir /home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/genome/genome_dir \
         --genomeFastaFiles ${genome_in} \
         --sjdbGTFfile ${gtf_in} \
         --sjdbOverhang 100 
@@ -107,7 +107,7 @@ process fastqc_raw {
 
     label 'fastqc_raw'
 
-    module = 'MOD/fastqc/0.11.9'
+    module 'BIDA/fastqc/0.11.8'
 
     publishDir "$fastqc_raw_out", mode:'copy'
    
@@ -132,7 +132,7 @@ process fastp {
 
     label 'fastp'
 
-    module 'MOD/fastp/0.20.1'
+    module 'BIDA/fastp/0.23.2'
     
     publishDir "$fastp_out", mode:'copy', pattern: '*.fastq.gz'
     publishDir "$fastp_out", mode:'copy', pattern: '*fastp.json'
@@ -161,7 +161,7 @@ process fastp {
 
      label 'fastqc_fastp'
 
-     module = 'MOD/fastqc/0.11.9'
+     module 'BIDA/fastqc/0.11.8'
 
      publishDir "$fastqc_fastp_out", mode:'copy'
  
@@ -257,7 +257,7 @@ process fastp {
 
      label 'repair_fastqc'
 
-     module = 'MOD/fastqc/0.11.9'
+     module 'BIDA/fastqc/0.11.8'
 
      publishDir "$repair_fastqc_out", mode:'copy'
  
@@ -282,7 +282,7 @@ process fastp {
 
      label 'star_align'
 
-     module 'MOD/star/2.7.9a'
+     module 'BIDA/STAR/2.7.0d'
 
      publishDir "$star_alignments_out", mode:'copy'
    
@@ -314,7 +314,7 @@ process fastp {
 
      label 'qualimap'
 
-     conda '/home/ajan/.conda/envs/qualimap'
+     conda '/home/ajan/.conda/envs/qualimap' 
 
      publishDir "$qualimap_out", mode:'copy'
    
@@ -336,7 +336,7 @@ process fastp {
 
      label 'picard_matrix'
 
-     conda '/home/ajan/.conda/envs/picard'
+     conda '/home/ajan/.conda/envs/picard_2.27.4'
 
      publishDir "$picard_out", mode:'copy'
    
@@ -356,7 +356,7 @@ process fastp {
 
      label 'samtools_index'
 
-     conda '/home/ajan/.conda/envs/samtools'
+     module 'BIDA/samtools/1.9'
 
      publishDir "$samtools_index_out", mode:'copy'
    
@@ -376,7 +376,7 @@ process fastp {
 
      label 'samtools_flagstat'
 
-     conda '/home/ajan/.conda/envs/samtools'
+     module 'BIDA/samtools/1.9'
 
      publishDir "$samtools_flagstat_out_path", mode:'copy'
    
