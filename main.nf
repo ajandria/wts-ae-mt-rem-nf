@@ -13,7 +13,7 @@ gtf_in = '/home/ajan/projects/references/mus_musculus/Mus_musculus.GRCm39.108.ch
 ref_flat_in = '/home/ajan/projects/references/mus_musculus/Mus_musculus.GRCm39.108.chr.gtf.refFlat.gz'
 genome_in = '/home/ajan/projects/references/mus_musculus/Mus_musculus.GRCm39.dna.primary_assembly.fa'
 params.indices = '/home/ajan/projects/references/mus_musculus'
-params.indexed = 'genome'
+indices_mus = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/genome'
 
 rRNA_1 = '/home/ajan/projects/rRNA_databases/rfam-5.8s-database-id98.fasta'
 rRNA_2 = '/home/ajan/projects/rRNA_databases/rfam-5s-database-id98.fasta'
@@ -78,7 +78,7 @@ Channel
  * Process 1: Fastqc on raw fastq
  */
 
- process generate_star_index {
+/*  process generate_star_index {
 
      label 'star_align'
 
@@ -102,7 +102,7 @@ Channel
         --sjdbGTFfile ${gtf_in} \
         --sjdbOverhang 100 
 	"""
-}
+} */
 
 process fastqc_raw {
 
@@ -201,7 +201,7 @@ process fastp {
      script:
          """
 
-         mkdir /home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/sortmerna/${id}
+         mkdir -p /home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/sortmerna/${id}
 
          sortmerna \
          --ref ${rRNA_1} \
@@ -288,7 +288,6 @@ process fastp {
      publishDir "$star_alignments_out", mode:'copy'
    
      input:
-         path indices_mus from ch_index
          set val(id), file(fastq_1), file(fastq_2) from repair_star
     
      output:
