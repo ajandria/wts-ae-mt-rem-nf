@@ -147,9 +147,13 @@ process fastp {
         file("${id}_fastp.json") into fastp_multiqc
         file "${id}_fastp.html"
 
+    // Minimum read length is set to 50 as it is proposed by ENCODE in the section of Uniform Processing Pipeline Restrictions:
+    // https://www.encodeproject.org/data-standards/rna-seq/long-rnas/
+    // - The sequenced read length should be a minimum of 50 base pairs.
+
     script:
         """
-	fastp -i ${fastq_1} -I ${fastq_2} -o ${id}_1_fastp.fastq.gz -O ${id}_2_fastp.fastq.gz -j ${id}_fastp.json -h ${id}_fastp.html -q 30 -e 25 -n 3 -l 70 -c -x -p -w ${task.cpus}
+	fastp -i ${fastq_1} -I ${fastq_2} -o ${id}_1_fastp.fastq.gz -O ${id}_2_fastp.fastq.gz -j ${id}_fastp.json -h ${id}_fastp.html -q 30 -e 25 -n 5 -l 50 -c -x -p -w ${task.cpus}
 
 	"""
 }  
@@ -292,7 +296,7 @@ process fastp {
     
      output:
          set val(id), file ("${id}*.bam") into (star_qualimap, star_samtools_index, star_samtools_flagstat, star_picard, star_subread, star_featureCounts)
-         path ("${id}*") into star_alignments_path
+         file ("${id}*") into star_alignments_path
 
      script:
          """
@@ -628,6 +632,32 @@ process multiqc_repair_fastqc {
         multiqc *.zip
 
         mv multiqc_report.html multiqc_repair_fastqc.html
+	"""
+}
+
+/*
+ * Process 6: Run multiqc on raw fastq
+ */
+
+process multiqc_star_align {
+
+    label 'multiqc_repair_fastqc'
+
+    conda '/home/ajan/.conda/envs/multiqc'
+
+    publishDir "$multiqc_repair_fastqc_out", mode:'copy'
+   
+    input:
+        file("*") from star_alignments_path.collect()
+    
+    output:
+        file("multiqc_star_alignments.html")
+
+    script:
+        """
+        multiqc *
+
+        mv multiqc_report.html multiqc_star_alignments.html
 	"""
 }
 
