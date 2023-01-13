@@ -8,7 +8,7 @@
  * Define output folders
  */ 
 
-fastq_in = '/home/ajan/projects/MICE_MT_HDMs/data_subset'
+fastq_in = '/home/ajan/projects/MICE_MT_HDMs/data'
 gtf_in = '/home/ajan/projects/references/mus_musculus/Mus_musculus.GRCm39.108.chr.gtf'
 ref_flat_in = '/home/ajan/projects/references/mus_musculus/Mus_musculus.GRCm39.108.chr.gtf.refFlat.gz'
 genome_in = '/home/ajan/projects/references/mus_musculus/Mus_musculus.GRCm39.dna.primary_assembly.fa'
