@@ -8,12 +8,11 @@
  * Define output folders
  */ 
 
-fastq_in = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/AEljaszewicz_WTS'
+fastq_in = '/home/ajan/projects/MICE_MT_HDMs/data_subset'
 gtf_in = '/home/ajan/projects/references/mus_musculus/Mus_musculus.GRCm39.108.chr.gtf'
 ref_flat_in = '/home/ajan/projects/references/mus_musculus/Mus_musculus.GRCm39.108.chr.gtf.refFlat.gz'
 genome_in = '/home/ajan/projects/references/mus_musculus/Mus_musculus.GRCm39.dna.primary_assembly.fa'
-params.indices = '/home/ajan/projects/references/mus_musculus'
-indices_mus = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/genome'
+indices_mus = '/home/ajan/projects/references/mus_musculus/Mus_musculus.GRCm39.108_genomeDir'
 
 rRNA_1 = '/home/ajan/projects/rRNA_databases/rfam-5.8s-database-id98.fasta'
 rRNA_2 = '/home/ajan/projects/rRNA_databases/rfam-5s-database-id98.fasta'
@@ -24,29 +23,30 @@ rRNA_6 = '/home/ajan/projects/rRNA_databases/silva-bac-23s-id98.fasta'
 rRNA_7 = '/home/ajan/projects/rRNA_databases/silva-euk-18s-id95.fasta'
 rRNA_8 = '/home/ajan/projects/rRNA_databases/silva-euk-28s-id98.fasta'
 
-fastqc_raw_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/fastqc_raw'
-fastp_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/fastp'
-fastqc_fastp_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/fastp_fastqc'
-sortmerna_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/sortmerna'
-sortmerna_fastqc = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/sortmerna_fastqc'
-repair_bbmap_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/repair_bbmap'
-star_alignments_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/star_alignments'
-qualimap_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/qualimap'
-picard_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/picard'
-multiqc_fastqc_raw_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/multiqc/fastqc_raw'
-multiqc_fastqc_fastp_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/multiqc/fastqc_fastp'
-multiqc_fastp_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/multiqc/fastp'
-repair_fastqc_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/fastqc_repaired_sortmerna'
-multiqc_star_alignments_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/multiqc/star_alignments'
-multiqc_qualimap_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/multiqc/qualimap'
-multiqc_picard_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/multiqc/picard'
+fastqc_raw_out = '/home/ajan/projects/MICE_MT_HDMs/fastqc_raw'
+fastp_out = '/home/ajan/projects/MICE_MT_HDMs/fastp'
+fastqc_fastp_out = '/home/ajan/projects/MICE_MT_HDMs/fastp_fastqc'
+sortmerna_out = '/home/ajan/projects/MICE_MT_HDMs/sortmerna'
+sortmerna_fastqc = '/home/ajan/projects/MICE_MT_HDMs/sortmerna_fastqc'
+repair_bbmap_out = '/home/ajan/projects/MICE_MT_HDMs/repair_bbmap'
+star_alignments_out = '/home/ajan/projects/MICE_MT_HDMs/star_alignments'
+qualimap_out = '/home/ajan/projects/MICE_MT_HDMs/qualimap'
+picard_out = '/home/ajan/projects/MICE_MT_HDMs/picard'
+multiqc_fastqc_raw_out = '/home/ajan/projects/MICE_MT_HDMs/multiqc/fastqc_raw'
+multiqc_fastqc_fastp_out = '/home/ajan/projects/MICE_MT_HDMs/multiqc/fastqc_fastp'
+multiqc_fastp_out = '/home/ajan/projects/MICE_MT_HDMs/multiqc/fastp'
+repair_fastqc_out = '/home/ajan/projects/MICE_MT_HDMs/fastqc_repaired_sortmerna'
+multiqc_star_alignments_out = '/home/ajan/projects/MICE_MT_HDMs/multiqc/star_alignments'
+multiqc_qualimap_out = '/home/ajan/projects/MICE_MT_HDMs/multiqc/qualimap'
+multiqc_picard_out = '/home/ajan/projects/MICE_MT_HDMs/multiqc/picard'
 samtools_index_out = star_alignments_out
-samtools_flagstat_out_path = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/samtools_flagstat'
-sortmerna_multiqc_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/multiqc/sortmerna'
-multiqc_samtools_flagstat_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/multiqc/samtools_flagstat'
-multiqc_repair_fastqc_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/multiqc/repaired_sortmerna'
-multiqc_featureCounts_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/multiqc/featureCounts'
-featureCounts_out = '/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/featureCounts'
+samtools_flagstat_out_path = '/home/ajan/projects/MICE_MT_HDMs/samtools_flagstat'
+sortmerna_multiqc_out = '/home/ajan/projects/MICE_MT_HDMs/multiqc/sortmerna'
+multiqc_samtools_flagstat_out = '/home/ajan/projects/MICE_MT_HDMs/multiqc/samtools_flagstat'
+multiqc_repair_fastqc_out = '/home/ajan/projects/MICE_MT_HDMs/multiqc/repaired_sortmerna'
+multiqc_align_star_out = '/home/ajan/projects/MICE_MT_HDMs/multiqc/align_star'
+multiqc_featureCounts_out = '/home/ajan/projects/MICE_MT_HDMs/multiqc/featureCounts'
+featureCounts_out = '/home/ajan/projects/MICE_MT_HDMs/featureCounts'
 
 log.info """\
 
@@ -97,7 +97,7 @@ Channel
         STAR \
         --runThreadN ${task.cpus} \
         --runMode genomeGenerate \
-        --genomeDir /home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/genome \
+        --genomeDir /home/ajan/projects/MICE_MT_HDMs/genome \
         --genomeFastaFiles ${genome_in} \
         --sjdbGTFfile ${gtf_in} \
         --sjdbOverhang 100 
@@ -199,13 +199,16 @@ process fastp {
          set val(id), file(fastq_1), file(fastq_2) from fastp_sortmerna
   
      output:
-         set val(id), file("clean_${id}_fwd.fq.gz"), file("clean_${id}_rev.fq.gz") into (sortmerna_repair)
+         set val(id), file("clean_${id}_fwd.fq.gz"), file("clean_${id}_rev.fq.gz") into (sortmerna_align)
          file("*.log") into sortmerna_out_path
+
+     // --paired_out -> says to keep pairs together (if one matches, then count both as matching db) - no need for repair.sh
+     // fwd and rev files are just the naming scheme used 
 
      script:
          """
 
-         mkdir -p /home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/sortmerna/${id}
+         mkdir -p /home/ajan/projects/MICE_MT_HDMs/sortmerna/${id}
 
          sortmerna \
          --ref ${rRNA_1} \
@@ -218,12 +221,13 @@ process fastp {
          --ref ${rRNA_8} \
          --reads ${fastq_1} \
          --reads ${fastq_2} \
-         --workdir /home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/sortmerna/${id} \
+         --workdir /home/ajan/projects/MICE_MT_HDMs/sortmerna/${id} \
          -a ${task.cpus} \
          --fastx \
          -v \
          -m 31744 \
          --out2 \
+         --paired_out \
          --other clean_${id} \
          --aligned aligned_rRNA_${id}
  	"""
@@ -233,7 +237,7 @@ process fastp {
   * Process 4: Run STAR 
   */
 
- process repair {
+/*  process repair {
 
      label 'repair'
 
@@ -245,19 +249,19 @@ process fastp {
          set val(id), file(fastq_1), file(fastq_2) from sortmerna_repair
   
      output:
-         set val(id), file("repaired_clean_${id}_fwd.fq.gz"), file("repaired_clean_${id}_rev.fq.gz") into (repair_star, repair_fastqc)
+         set val(id), file("repaired_clean_${id}_fwd.fastq.gz"), file("repaired_clean_${id}_rev.fastq.gz") into (repair_star, repair_fastqc)
          file("*")
 
      script:
          """
-         repair.sh in=${fastq_1} in2=${fastq_2} out=repaired_clean_${id}_fwd.fq.gz out2=repaired_clean_${id}_rev.fq.gz 
+         repair.sh in=${fastq_1} in2=${fastq_2} out=repaired_clean_${id}_fwd.fastq.gz out2=repaired_clean_${id}_rev.fastq.gz outs=no_mate_or_missmatched_reads_${id}.fastq.gz
  	"""
- }
+ } */
 
   /*
   * Process 3: Fastqc on filtered
   */
-
+/* 
  process repair_fastqc {
 
      label 'repair_fastqc'
@@ -278,7 +282,7 @@ process fastp {
          fastqc -t ${task.cpus} ${fastq_1} ${fastq_2}
  	"""
  }
-
+ */
  /*
   * Process 4: Run STAR 
   */
@@ -292,7 +296,7 @@ process fastp {
      publishDir "$star_alignments_out", mode:'copy'
    
      input:
-         set val(id), file(fastq_1), file(fastq_2) from repair_star
+         set val(id), file(fastq_1), file(fastq_2) from sortmerna_align
     
      output:
          set val(id), file ("${id}*.bam") into (star_qualimap, star_samtools_index, star_samtools_flagstat, star_picard, star_subread, star_featureCounts)
@@ -330,7 +334,7 @@ process fastp {
 
      script:
          """
-         export JAVA_OPTS="-Djava.io.tmpdir=/home/ajan/projects/AEljaszewicz_WTS_MT-REMOD/trash"
+         export JAVA_OPTS="-Djava.io.tmpdir=/home/ajan/projects/MICE_MT_HDMs/trash"
 
          qualimap rnaseq -bam ${bam} -gtf ${gtf_in} -outdir ${id}/ -pe -p strand-specific-reverse -outformat PDF:HTML --java-mem-size=16G
 	"""
@@ -613,7 +617,7 @@ process multiqc_fastqc_fastp {
  * Process 6: Run multiqc on raw fastq
  */
 
-process multiqc_repair_fastqc {
+/* process multiqc_repair_fastqc {
 
     label 'multiqc_repair_fastqc'
 
@@ -634,18 +638,18 @@ process multiqc_repair_fastqc {
         mv multiqc_report.html multiqc_repair_fastqc.html
 	"""
 }
-
+ */
 /*
  * Process 6: Run multiqc on raw fastq
  */
 
 process multiqc_star_align {
 
-    label 'multiqc_repair_fastqc'
+    label 'multiqc_fastqc_fastp'
 
     conda '/home/ajan/.conda/envs/multiqc'
 
-    publishDir "$multiqc_repair_fastqc_out", mode:'copy'
+    publishDir "$multiqc_align_star_out", mode:'copy'
    
     input:
         file("*") from star_alignments_path.collect()
